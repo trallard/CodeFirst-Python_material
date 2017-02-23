@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
-# basic script to send an email
-# using HTML
-
+#==============================================================================
+# Script to send an email wiht HTML text
+# using Mailgun
+# 
+#==============================================================================
 import requests
 
 # loading the info

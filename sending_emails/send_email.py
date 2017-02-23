@@ -1,4 +1,9 @@
-# basic script to send an email
+#==============================================================================
+# Basic script to send an email
+# using Mailgun
+# requires requests
+# 
+#==============================================================================
 import requests
 
 # loading the info

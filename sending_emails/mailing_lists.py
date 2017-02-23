@@ -1,7 +1,9 @@
-# -*- coding: utf-8 -*-
-# code to create mailing lists and add members 
+#==============================================================================
+# Script to add members to a list
+# and email the list using Mailgun
+# 
+#==============================================================================
 
-# basic script to create a mailing list 
 import requests
 
 # loading the info
