@@ -4,22 +4,35 @@
 # Code used to tweet using Python and the 
 # Twitter API
 #==============================================================================
-
+# Import libraries 
 import tweepy
+
+# Import the keys (make sure they are in a secure place)
 from twitter_keys import *
 
-
+# OAuth for the API
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_sec)
+auth.secure = True
+auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-public_tweets = api.home_timeline()
-for tweet in public_tweets:
-    print (tweet.text)
-    
-    
-# let's tweet!
+# If the authentication was successful, you should
+# see the name of the account print out
+print(api.me().name)
 
-tweet = 'This was tweeted using #python @CodeFirstGirls #ShefCodefirst'
+# now let's print the tweets in our timeline
+# we use the Cursor interface to print 10 tweets
+for status in tweepy.Cursor(api.home_timeline).items(10):
+    # Process a single status
+    print("\n"+status.text) 
+    
+    
+# the same data can be written to process/store JSON
+for status in tweepy.Cursor(api.home_timeline).items(10):
+    # Process a single status
+    print(status._json) 
+    
+# let's tweet! using Python
+tweet = 'Getting to the end of a great course delivered by Ian Bush #SheffFortranCourse @NAGTalk'
 api.update_status(status= tweet)

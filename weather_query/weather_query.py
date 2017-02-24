@@ -41,12 +41,13 @@ def data_fetch(full_api_url):
 url = url_builder(city_id)
 
 
+############################################################
 # fecthing the weather 
 try:
     requested = requests.get(url)
     print( requested ) # so that we can see the status
     if mode == 'json':
-        data= json.loads(requested.text)
+        data = json.loads(requested.text)
     elif mode == 'html':
         webbrowser.open_new_tab(requested.url)     
 except:
@@ -56,6 +57,7 @@ except:
 # printing the obtained data
 print( data )
 
+###########################################################
 
 # or using the function 
 data = data_fetch(url)
