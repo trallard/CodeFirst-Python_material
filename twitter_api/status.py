@@ -13,7 +13,7 @@ from twitter_keys import *
 # OAuth for the API
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.secure = True
-auth.set_access_token(access_token, access_token_secret)
+auth.set_access_token(access_token, access_token_sec)
 
 api = tweepy.API(auth)
 
