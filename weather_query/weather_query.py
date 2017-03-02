@@ -1,17 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 22 11:49:48 2017
-script to access weather information 
-@author: tania
-"""
-
+#==============================================================================
+# 
+# Code used to query weather data via API
+# 
+#==============================================================================
 # loading libraries
 
 import json
 import urllib.request 
 import sys
 import webbrowser
+import requests
 
 # for python2 comment the above line 
 #uncomment the one below

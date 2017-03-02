@@ -6,20 +6,31 @@
 #==============================================================================
 
 import tweepy
+from tweepy.streaming import StreamListener
+from tweepy import Stream
 from twitter_keys import *
 
-# authorization and set up
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_sec)
-api = tweepy.API(auth)
 
-#override tweepy.StreamListener to add logic to on_status
+# creating a listener to get the tweets received
+# this will notify us if there is an error
 class MyStreamListener(tweepy.StreamListener):
 
-    def on_status(self, status):
-        print(status.text)
+    def on_data(self, data):
+        print (data)
+        return (True)
+    
+    def on_error(self, data):
+        print (status)
         
-myStreamListener = MyStreamListener()
-myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener())
-
-myStream.filter(track=['python'])
+        
+if __name__ == 'main':
+    # this handles the connection to Twitter streaming API
+    l = MyStreamListener()
+    # authorization and set up
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_sec)
+    stream = Stream(auth, l)
+    
+    # Now filterinng our stream to capture the data by the 
+    # given keywords
+    stream.filter(track = ['python'])

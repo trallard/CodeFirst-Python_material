@@ -29,10 +29,12 @@ for status in tweepy.Cursor(api.home_timeline).items(10):
     
     
 # the same data can be written to process/store JSON
-for status in tweepy.Cursor(api.home_timeline).items(10):
+for status in tweepy.Cursor(api.home_timeline).items(1):
     # Process a single status
     print(status._json) 
+    # Saving the Json in a variable
+    json_var =  status._json
     
 # let's tweet! using Python
-tweet = 'Getting to the end of a great course delivered by Ian Bush #SheffFortranCourse @NAGTalk'
+tweet = 'Awesome #Python session... testing APIs'
 api.update_status(status= tweet)
