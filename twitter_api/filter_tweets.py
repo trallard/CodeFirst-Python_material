@@ -13,7 +13,7 @@ from twitter_keys import *
 
 # creating a listener to get the tweets received
 # this will notify us if there is an error
-class MyStreamListener(tweepy.StreamListener):
+class MyStreamListener(StreamListener):
 
     def on_data(self, data):
         print (data)
@@ -23,9 +23,10 @@ class MyStreamListener(tweepy.StreamListener):
         print (status)
         
         
-if __name__ == 'main':
+if __name__ == '__main__':
     # this handles the connection to Twitter streaming API
     l = MyStreamListener()
+    
     # authorization and set up
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_sec)
@@ -33,4 +34,4 @@ if __name__ == 'main':
     
     # Now filterinng our stream to capture the data by the 
     # given keywords
-    stream.filter(track = ['python'])
+    stream.filter(track = ['python', 'cake'])
