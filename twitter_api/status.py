@@ -36,5 +36,5 @@ for status in tweepy.Cursor(api.home_timeline).items(1):
     json_var =  status._json
     
 # let's tweet! using Python
-tweet = 'Awesome #Python session... testing APIs'
+tweet = 'Tweeting from the @CodeFirstGirls #python course'
 api.update_status(status= tweet)

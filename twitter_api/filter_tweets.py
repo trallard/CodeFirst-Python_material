@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #==============================================================================
 #  
-# Code used to tweet using Python and the 
+# Basic tweet filtering using the 
 # Twitter API
 #==============================================================================
 
@@ -9,6 +9,7 @@ import tweepy
 from tweepy.streaming import StreamListener
 from tweepy import Stream
 from twitter_keys import *
+import json 
 
 
 # creating a listener to get the tweets received
