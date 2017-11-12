@@ -1,0 +1,21 @@
+{% extends "base.htm.j2" %}
+{% block title %}Twitter Search result for the keyword {{search_string}}{% endblock %}
+
+{% block content %}
+  {% for tweet in tweets %}
+  <div class="row">
+    <div class="col-sm-12">
+      <b>
+        {{ tweet.user.name }}: <span>{{ tweet.text }}</span>
+      </b>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    span {font-weight: normal;}
+  </style>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% include "header.html" %}
+<h1> Twitter searching example</h1>
+
+{% block content %}
+  <div class="row">
+    <form action="/twitter_search" method="post">
+      <div class="col-sm-6">
+        {% from "form_input_helper.html" import form_group_div as input_div %}
+        {{ input_div("s", "Search Term: ", "text", "Begin searching Twitter here...", required=True) }}
+      </div>
+      <div class="col-sm-6">
+        <button type="submit" class="btn btn-primary">Send!</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
+
+{% include "footer.html" %}
