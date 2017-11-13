@@ -6,40 +6,26 @@ Created on Sat Nov 11 17:30:02 2017
 """
 
 import tweepy
+import yaml
 
-# These should be in a config file or env vars...
-consumer_key = os.environ['twitter_consumer_key']
-consumer_secret = os.environ['twitter_consumer_secret']
 
-def request_access_token(session):
-    """Requests access token from user."""
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth_url = auth.get_authorization_url()
-    session["request_token"] = auth.request_token
-    return auth_url
-
-def get_access_token(verifier, session):
-    """Retrieves the access token for using the Twitter API under the user's
-    account, now that they have given permission for us to make requests
-    on their behalf."""
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    try:
-        request_token = session["request_token"]
-        auth.request_token = request_token
-
-        auth.get_access_token(verifier)
-        session["access_token"] = auth.access_token
-        session["access_token_secret"] = auth.access_token_secret
-    except (tweepy.TweepError, KeyError) as e:
-        print(e)
-        return "Error :("
+# This will load the configuration variables for the API's
+def get_config():
+    # Check if there is already a configuration file
+    if not os.path.isfile('config.yml'):
+        print('No config file found, make sure you have one')
     else:
-        return "Success!"
+        with open("config.yml", 'r') as ymlfile:
+            keys = yaml.load(ymlfile)
+
+    return keys
 
 
 def authenticate():
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_sec)
+    config = get_config()
+    auth = tweepy.OAuthHandler(config['twitter']['consumer_key'],config['twitter']['consumer_secret'])
+    auth.set_access_token(config['twitter']['access_token'],config['twitter']['access_secret'])
+
     return tweepy.API(auth)
 
 
