@@ -7,6 +7,7 @@ Created on Sat Nov 11 17:30:02 2017
 
 import tweepy
 import yaml
+import os
 
 
 # This will load the configuration variables for the API's
@@ -26,15 +27,18 @@ def authenticate():
     auth = tweepy.OAuthHandler(config['twitter']['consumer_key'],config['twitter']['consumer_secret'])
     auth.set_access_token(config['twitter']['access_token'],config['twitter']['access_secret'])
 
-    return tweepy.API(auth)
+    twitter_api = tweepy.API(auth)
+
+    print('Logged in as {}'.format(twitter_api.me().name))
+    return twitter_api
 
 
-def collect_tweets(keyword, stop_num):
+def collect_tweets(keyword):
     keyword = keyword.strip()
     twitter = authenticate()
     print('Finding tweets with {} keyword'.format(keyword))
-    tweets = twitter.search(keyword, limit=stop_num)
-    show_content(tweets)
+    tweets = twitter.search(keyword)
+    return tweets
 
 
 def stalker(victim, no):

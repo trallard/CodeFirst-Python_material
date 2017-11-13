@@ -17,8 +17,13 @@ def twitter_example():
 
 @app.route("/twitter_search", methods = ['POST'])
 def twitter_search_app():
-    session['s'] = request.form['s']
-    return redirect()
+    query = request.form['query']
+
+    tweets = collect_tweets(query)
+
+
+    return render_template('tweets_show.html', search_string=query,
+                           tweets =tweets)
 
 
 # "debug=True" causes Flask to automatically refresh upon any changes you

@@ -1,8 +1,0 @@
-{% macro form_group_div(name, label, type, placeholder, required=False, autofocus=False) %}
-  <div class="form-group">
-    <label for="{{name}}" class="col-xs-12 col-sm-3 control-label">{{label}}</label>
-    <div class="col-xs-12 col-sm-6">
-      <input type="{{type}}" class="form-control" id="{{name}}" name="{{name}}" value="" placeholder="{{placeholder}}" {% if required %}required{% endif %} {% if autofocus %}autofocus{% endif %} />
-    </div>
-  </div>
-{% endmacro %}
