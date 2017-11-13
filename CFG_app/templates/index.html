@@ -1,42 +1,41 @@
 {% include "header.html" %}
-
-<!-- The values in the class attribute elements come from the Bootstrap framework. For more
-information on what they do, visit https://getbootstrap.com/docs/3.3/ -->
 <div class="container">
-  <div class="row">
-    <!-- The "action" attribute of a form ("/feedback" in this case) denotes the URL
-    in which it will be a sending a request to. So, to handle this request, we
-    need to define a corresponding function back in our Flask app with
-    @app.route("/feedback", ...) above the function. -->
-    <form class="form-horizontal" action="/feedback" method="post">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+						<div class="card card-signup">
+							<form class="form" method="" action="">
+								<div class="header header-primary text-center">
+									<h4> Twitter search </h4>
+								</div>
 
-      <div class="form-group">
-        <label for="t_query" class="col-xs-12 col-sm-3 control-label">
-          What do you want to search for?
-        </label>
-        <div class="col-xs-12 col-sm-6">
-          <input type="text" name="t_query" id="t_query" class="form-control">
-        </div>
-      </div>
+								<div class="content">
 
-      <div class="form-group">
-        <label for="no_tweets" class="col-xs-12 col-sm-3 control-label">
-          Number of items to collect?
-        </label>
-        <div class="col-xs-12 col-sm-6">
-          <input type="number" name="no_tweets" id="no_tweets" class="form-control"
-          value=1>
-        </div>
-      </div>
+                  <div class="form-group">
+						<input type="text" name="query" id="query" class="form-control" placeholder="Search for..">
+					</div>
+					<div class="form-group">
+						<input type="no_tweets" name="no_tweets" id="no_tweets" class="form-control" placeholder="Number of tweets">
+					</div>
 
-      <div class="form-group">
-        <div class="col-sm-offset-3">
-          <input type="submit" class="btn btn-default" value="Go searching!" id="submit-button" />
-        </div>
-      </div>
 
-    </form>
-  </div>
+									<!-- If you want to add a checkbox to this form, uncomment this code
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="optionsCheckboxes" checked>
+											Subscribe to newsletter
+										</label>
+									</div> -->
+								</div>
+								<div class="footer text-center">
+									<button type="submit" class="btn">Log In</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
   {% include "footer.html" %}
   <!-- Include any JavaScript here - best place to do so pages load faster. -->

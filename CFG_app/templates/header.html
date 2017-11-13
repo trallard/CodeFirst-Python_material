@@ -1,30 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<!-- In this styled up version of the app, we really start to notice the benefit of
-separating the header code into its own file, rather than having to copy and pasting this
-everywhere, as adding a link to the nav bar would require you to update all copies of the nav
-bar across every template, which becomes tedious and error-prone as you may easily forget
-to update one of them. -->
 <head>
-  <meta charset="utf-8">
-  <!-- The all important meta tag to ensure mobile responsive media queries work properly -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href={{url_for( 'static', filename='css/app.css' )}}>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title> Code First: Advanced Python material</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+	<link href={{ url_for("static", filename="css/bootstrap.min.css") }} rel="stylesheet" />
+	<link href={{ url_for("static", filename="css/material-kit.css") }} rel="stylesheet"/>
+
+	<style media="screen">
+	.img-circle{
+		width: 120px;
+		height: 120px;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+		object-fit: cover;
+		overflow: hidden;
+	}
+
+	.talk{
+		text-align: center;
+	}
+	a.no-underline,
+	a.no-underline:hover {
+  border: 0;
+	}
+
+.img-talk{
+	border-style: solid;
+	border-width: 2px;
+	width: 300px;
+	border-radius: 3px;
+	border-color: #3C4858;
+	margin: 20px;
+}
+
+.info-text {
+  font-size: 20px;
+}
+
+form {
+  padding-bottom: 25px;
+}
+
+button.btn, button.btn:hover {
+  background-color: #8E24AA;
+}
+
+#not-logged-in {
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+#dismiss {
+  top: -15px;
+  right: -5px;
+  font-size: 24px;
+}
+</style>
 </head>
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Demo</a>
-      </div>
-    </div>
-  </nav>
+
+<body class="signup-page">
+	<nav class="navbar navbar-primary navbar-absolute">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+
+              <a class="navbar-brand" href="/">
+			#ShefCodeFirst integrate APIs and Flask</a>
+        	</div>
+    	</div>
+    </nav>
+
+    <div class="wrapper">

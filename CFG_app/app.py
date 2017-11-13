@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
-from helpers.twitter import *
+from helpers.twitter import authenticate, collect_tweets
 
 app = Flask("Tweets scraper")
 session = {}
